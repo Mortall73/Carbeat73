@@ -1,0 +1,235 @@
+@import "./settings.scss";
+
+header {
+    min-height: 110px;
+    background: $black;
+    color: $white;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+
+    @media screen and (max-width: $bpMd) {
+        min-height: auto;
+        padding: 5px 0;
+    }
+}
+.header-menu-col {
+    @media screen and (min-width: $bpMd) {
+        display: block !important;
+    }
+}
+.header__logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    a {
+        display: inline-block;
+    }
+}
+.header-call {
+    text-align: right;
+    margin-top: 15px;
+
+    @media screen and (max-width: $bpMd) {
+        text-align: center;
+    }
+    @media screen and (max-width: $bpSm) {
+        .header-call__callback {
+            display: block;
+            margin: 10px auto;
+        }
+    }
+
+    &__phone {
+        text-decoration: none;
+        color: $white;
+        font-size: 20px;
+        margin-right: 20px;
+        position: relative;
+        padding-left: 40px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: url('../images/phone_icon.png') center no-repeat;
+            width: 24px;
+            height: 24px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto auto auto 0;
+        }
+    }
+    &__callback {
+        border: none;
+        font-weight: 700;
+        padding: 15px 30px;
+        outline: none;
+        background: $red;
+        color: $white;
+        text-transform: uppercase;
+        overflow: hidden;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 5px;
+            background-color: $white;
+            left: -30px;
+            transform: rotate(25deg);
+            top: 0;
+            box-shadow: 0 0 14px 8px $white;
+            transition: all .4s;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken($red, 5%);
+
+            &::after {
+                left: 120%;
+            }
+        }
+
+        &:active {
+            background-color: darken($red, 8%);
+            top: 1px;
+        }
+    }
+}
+
+.header-menu__list {
+    padding: 0;
+    list-style: none;
+    font-family: 'BebasNeue', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 0;
+    margin: 15px 0;
+
+    @media screen and (max-width: $bpSm) {
+        text-align: left;
+    }
+
+    &-item,
+    .menu-item {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 20px;
+
+        @media screen and (max-width: $bpLg) {
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        @media screen and (max-width: $bpMd) {
+            margin: 0 8px;
+            font-size: 17px;
+        }
+        @media screen and (max-width: $bpSm) {
+            display: block;
+            margin: 10px 0;
+            font-size: 23px;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .header-menu__link,
+    .menu-item a {
+        text-decoration: none;
+        color: $white;
+
+        &:hover {
+            color: $red;
+        }
+
+        &--active {
+            color: $red;
+        } 
+    }
+}
+.mobile-menu {
+    position: relative;
+}
+.mobile-menu-btn {
+    width: 45px;
+    height: 25px;
+    position: absolute;
+    margin: auto 15px auto auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .decor-line {
+        content: "";
+        position: absolute;
+        height: 2px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background: $red;
+        opacity: 1;
+        transition: all .2s;
+        z-index: -1;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: $red;
+        transition: all .2s;
+        transform: rotate(0);
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $red;
+        transition: all .2s;
+        transform: rotate(0);
+    }
+
+    &.toggle-btn--open {
+        .decor-line {
+            opacity: 0;
+        }
+        &::before {
+            top: 50%;
+            transform: rotate(45deg);
+        }
+        &::after {
+            top: 50%;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+[data-toggle='mobile-menu'] {
+    @media screen and (max-width: $bpMd) {
+        display: none;
+    }
+}

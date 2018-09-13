@@ -1,0 +1,79 @@
+@import "./settings.scss";
+
+.repertory-modal {
+    min-width: 600px;
+}
+.repertory-compositions {
+    padding: 20px 40px;
+    margin: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 16px;
+    box-sizing: border-box;
+    max-height: 600px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    @media screen and (max-width: $bpSm) {
+        padding: 10px 15px;
+        max-height: 350px;
+    }
+
+    &::-webkit-scrollbar {
+        background-color: $grey;
+        border: 1px solid $borderColor;
+    }
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+        background-color: $borderColor;
+        width: 5px;
+    }
+}
+.repertory-compositions__composition {
+    margin: 10px 0;
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+    &-group {
+        color: $blue;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
+.modal-footer-repertory {
+    border-top: 1px solid $borderColor;
+    padding: 15px 0;
+    position: relative;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10px;
+        box-shadow: 0 0 #000;
+    }
+    .load-music {
+        color: $white;
+        background: $red;
+        text-transform: uppercase;
+        padding: 18px 35px;
+        font-size: 16px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all .2s;
+        position: relative;
+
+        &:hover {
+            background: darken($red, 5%);
+        }
+
+        &:active {
+            top: 2px;
+        }
+
+    }
+}

@@ -1,0 +1,119 @@
+@import "./settings.scss";
+
+.portfolio-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .slick-prev,
+    .slick-next {
+
+        &::before {
+            display: none;
+        }
+        
+    }
+    .slick-prev {
+        background: url(../images/arrow-left.png) center no-repeat;
+        width: 30px;
+        height: 32px;
+        left: 0;
+        z-index: 1;
+    }
+
+    .slick-next {
+        background: url(../images/arrow-right.png) center no-repeat;
+        width: 30px;
+        height: 32px;
+        right: 0;
+        z-index: 1;
+    }
+}
+.portfolio-list__item {
+    video,
+    iframe {
+        max-width: 100%;
+    }
+}
+
+.portfolio-photo-gallery {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .portfolio-photo-gallery__item {
+        display: inline-block;
+        margin: 2px;
+        max-width: 15.6666666%;
+
+        @media screen and (max-width: $bpXl) {
+            max-width: 18.666667%;
+        }
+
+        @media screen and (max-width: $bpLg) {
+            max-width: 23.666667%;
+        }
+        @media screen and (max-width: $bpMd) {
+            max-width: 31.666667%;
+        }
+        @media screen and (max-width: $bpSm) {
+            max-width: 48%;
+        }
+
+
+        .portfolio-photo-gallery__grouped {
+            display: block;
+            position: relative;
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                left:0;
+                right:0;
+                bottom: 0;
+                top:0;
+                background: rgba(0, 0, 0, 0.73) url('../images/loop.png') center center no-repeat;
+                opacity: 0;
+                transition: all .3s linear;
+            }
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+.fancybox-navigation .fancybox-button--arrow_left {
+    bottom: 50px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-100px);
+    background: url('../images/arrow-left2.png') center center no-repeat;
+
+    div {
+        display: none;
+    }
+}
+.fancybox-navigation .fancybox-button--arrow_right {
+    bottom: 50px;
+    top: auto;
+    right: 50%;
+    transform: translateX(100px);
+    background: url('../images/arrow-right2.png') center center no-repeat;
+
+    div {
+        display: none;
+    }
+}

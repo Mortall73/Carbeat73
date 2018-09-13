@@ -1,0 +1,85 @@
+@import "./settings.scss";
+
+.short-description {
+    background: $black;
+    padding-bottom: 70px;
+
+    h2 {
+        margin: 0;
+        padding: 50px 0;
+
+        @media screen and (max-width: $bpSm) {
+            padding: 15px 0; 
+            font-size: 34px;
+        }
+    }
+
+    &__content {
+        color: $white;
+    }
+}
+.short-description-gallery {
+    padding: 0;
+
+    .short-description-gallery__picture {
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    .slick-prev {
+        background: $black url('../images/arrow-left.png') center no-repeat;
+        width: 30px;
+        height: 45px;
+        left: 10px;
+        z-index: 1;
+        opacity: .8;
+        &::before {
+            display: none;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .slick-next {
+        background: $black url('../images/arrow-right.png') center no-repeat;
+        width: 30px;
+        height: 45px;
+        right: 10px;
+        z-index: 1;
+        opacity: .8;
+        &:hover {
+            opacity: 1;
+        }
+        &::before {
+            display: none;
+        }
+    }
+    .slick-disabled {
+        opacity: .5;
+    }
+}
+.short-description__content {
+    font-size: 16px;
+    text-align: justify;
+    .micro-icon {
+        position: relative;
+        padding-left: 35px;
+        &::before {
+            position: absolute;
+            content: "";
+            width: 25px;
+            height: 30px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto auto auto 0;
+            background: url('../images/micro.png') center no-repeat;
+        }
+    }
+    .c-red {
+        font-weight: 700;
+    }
+}

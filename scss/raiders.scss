@@ -1,0 +1,82 @@
+@import "./settings.scss";
+.raiders {
+    background: #000 url('../images/raiders_bg.jpg') 0 center no-repeat;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+.raiders-file-link {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    min-height: 280px;
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.27);
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: -2px;
+        left: -2px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid;
+        border-color: transparent;
+        z-index: 1;
+        transition: all .3s linear;
+    }
+
+    &:hover {
+        &::before {
+            left: -20px;
+            top: -20px;
+            border-color: #fff;
+        }
+    }
+
+    @media screen and (max-width: $bpLg) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: $bpSm) {
+        margin-bottom: 10px;
+        min-height: 200px;
+    }
+
+    .raiders-file-link__content {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: auto;
+        //width: fit-content;
+        margin: auto;
+        text-align: center;
+        transform: translateY(-50%);
+        padding: 0 10px;
+
+        .raiders-file-link__img {
+            width: 90px;
+            height: 115px;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
+        .raiders-file-link__text {
+            text-transform: uppercase;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+
+    &--first {
+        .raiders-file-link__img {
+            background: url('../images/raider1.png') center center no-repeat;
+        }
+    }
+    &--second {
+        .raiders-file-link__img {
+            background: url('../images/raider2.png') center center no-repeat;
+        }
+    }
+}

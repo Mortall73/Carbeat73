@@ -1,0 +1,151 @@
+@import "./settings.scss"; 
+
+.about-us {
+    background: #282828  url('../images/bg_about.jpg') no-repeat;
+    padding-bottom: 50px;
+    background-size: cover;
+
+    @media screen and (max-width: $bpMd) {
+        padding-bottom: 20px;
+    }
+}
+.about-us-description {
+    padding: 0;
+}
+.about-us-description__item {
+    color: $white;
+    text-align: center;
+
+    h3 {
+        font-size: 19px;
+        font-weight: 400;
+        margin: 5px 0;
+        text-transform: uppercase;
+    }
+    
+}
+.about-us-description__item-note {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $grey2;
+}
+.about-us-description__item-desription {
+    width: 75%;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: $bpMd) {
+        width: 100% !important;
+    }
+}
+.about-us-carousel { 
+    padding: 0;
+
+    &__item {
+        text-align: center;
+
+        img {
+            margin: 0 auto;
+            transform: scale(1);
+            transition: all .2s;
+        }
+        
+    }
+}
+.about-us-carousel--main {
+    .about-us-carousel__item { 
+        z-index: 1;
+        opacity: .7;
+
+        &.slick-center {
+            padding-bottom: 40px;
+            z-index: 2;
+            position: relative;
+            opacity: 1;
+            
+            img {
+                transform: scale(1.2);
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+    .slick-prev {
+        background: url('../images/arrow-left.png') center no-repeat;
+        width: 30px;
+        height: 32px;
+        left: 0;
+        z-index: 1;
+        &::before {
+            display: none;
+        }
+    }
+    .slick-next {
+        background: url('../images/arrow-right.png') center no-repeat;
+        width: 30px;
+        height: 32px;
+        right: 0;
+        z-index: 1;
+        &::before {
+            display: none;
+        }
+    }
+    .slick-disabled {
+        opacity: .5;
+    }
+}
+.about-us-carousel--mini {
+    .slick-list {
+        padding: 0 !important;
+    }
+    .slick-track {
+        transform: none !important;
+        width: 100% !important;
+        text-align: center;
+    }
+    .about-us-carousel__item  {
+        width: auto !important;
+        display: inline-block;
+        float: none !important;
+        margin: 5px;
+        box-shadow: 0 0 0px 0px $yellow;
+        transition: box-shadow .2s;
+
+        @media screen and (max-width: $bpSm) {
+            width: 45% !important;
+        }
+        @media screen and (max-width: $bpMd) {
+            width: 31% !important;
+        }
+
+        &.slick-cloned {
+            display: none;
+        }
+
+        &.slick-current {
+            box-shadow: 0 0 1px 3px $yellow;
+            outline: none;
+            &:hover {
+                box-shadow: 0 0 1px 3px $yellow;
+                cursor: pointer;
+            }
+        }
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            box-shadow: 0 0 1px 1px $yellow;
+            cursor: pointer;
+        }
+        
+    }
+    .slick-arrow {
+        display: none !important;
+    }
+}

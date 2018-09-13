@@ -1,0 +1,64 @@
+@import "./settings.scss";
+
+.repertory {
+    background: $black url('../images/repertory_bg.png') 0 center no-repeat;
+    background-size: cover;
+    margin: 50px 0 0 0;
+}
+.repertory-list__item {
+    a {
+        text-decoration: none;
+        display: block;
+    }
+}
+.repertory-list {
+    padding: 0;
+    list-style: none;
+    @media screen and (max-width: $bpSm) {
+        .col-6:nth-child(2n-1) {
+            text-align: right;
+        }
+    }
+}
+.repertory-list__item-title {
+    display: block;
+    color: $blue;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+.repertory-list__item-subtitle {
+    display: block;
+    color: $white;
+    font-size: 16px;
+}
+
+.repertory-full {
+    text-align: center;
+    padding: 40px 0;
+
+    &__btn {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: $white;
+        padding: 15px 50px;
+        text-align: center;
+        border: 1px solid $borderColor;
+        background: #363c48;
+        transition: all .2s;
+        position: relative;
+
+        @media screen and (max-width: $bpSm) {
+            padding: 15px 25px;
+        }
+
+        &:hover {
+            background: #7c879d;
+            cursor: pointer;
+        }
+
+        &:active {
+            top: 1px;
+        }
+    }
+}
